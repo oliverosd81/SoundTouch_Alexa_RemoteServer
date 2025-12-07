@@ -1,11 +1,9 @@
 {
   "name": "AlexaSoundTouch_RemoteServer",
   "version": "1.0.0",
-  "main": "server/server.js",
-  "scripts": {
-    "start": "node .",
-    "pretest": "jshint .",
-    "posttest": "nsp check"
+  "engines": {
+    "node": "8.x",
+    "npm": "6.x"
   },
   "dependencies": {
     "compression": "^1.0.3",
