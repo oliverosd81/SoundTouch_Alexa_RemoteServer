@@ -5,6 +5,7 @@
   },
   "home": {
     "name": "home",
-    "connector": "mongodb"
+    "connector": "mongodb",
+    "url": "${MONGODB_URI}"
   }
 }
