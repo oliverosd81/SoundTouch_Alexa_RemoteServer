@@ -5,7 +5,7 @@
     "node": "18.x"
   },
   "scripts": {
-    "start": "node ."
+    "start": "node server/server.js"
   },
   "dependencies": {
     "compression": "^1.0.3",
