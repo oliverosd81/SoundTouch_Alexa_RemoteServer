@@ -6,6 +6,8 @@
   "home": {
     "name": "home",
     "connector": "mongodb",
-    "url": "${MONGODB_URI}"
+    "url": "${MONGODB_URI}",
+    "useNewUrlParser": true,
+    "useUnifiedTopology": true
   }
 }
