@@ -25,10 +25,7 @@
     },
     "helmet#hidePoweredBy": {},
     "helmet#ieNoOpen": {},
-    "helmet#noSniff": {},
-    "helmet#noCache": {
-      "enabled": false
-    }
+    "helmet#noSniff": {}
   },
   "session": {},
   "auth": {},
