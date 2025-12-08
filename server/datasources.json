@@ -6,8 +6,6 @@
   "home": {
     "name": "home",
     "connector": "mongodb",
-    "url": "${MONGODB_URI}",
-    "useNewUrlParser": true,
-    "useUnifiedTopology": true
+    "url": "mongodb+srv://bosebridge:U3nEDyafwBFy7Ii9@cluster0.9s97rlg.mongodb.net/bose-bridge?retryWrites=true&w=majority"
   }
 }
