@@ -1,6 +1,6 @@
 module.exports = function(Home) {
     Home.shiftStack = function(bridgeID, cb) {
-        Home.findById(bridgeID, function(err, instance){
+        Home.findOne({where: {alexaID: bridgeID}}, function(err, instance){
             if(err) {
                 console.log(err.name);
                 console.log(err.message);
@@ -37,7 +37,7 @@ module.exports = function(Home) {
     );
     
     Home.pushKey = function(bridgeID, url, cb) {
-        Home.findById(bridgeID, function(err, instance){
+        Home.findOne({where: {alexaID: bridgeID}}, function(err, instance){
             if(err) {
                 console.log(err.name);
                 console.log(err.message);
