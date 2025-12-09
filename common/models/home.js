@@ -4,25 +4,28 @@ module.exports = function(Home) {
             if(err) {
                 console.log(err.name);
                 console.log(err.message);
-                cb(null, err.message);
+                return cb(null, err.message);
+            }
+            if(!instance) {
+                console.log("Home not found for shiftStack:", bridgeID);
+                return cb(null, "Home not found");
             }
             var instanceJS = JSON.parse(JSON.stringify(instance));
-            instanceJS.keyStack.shift()
-           if(instance.keyStack.length > 0){
-               instance.updateAttribute('keyStack', instanceJS.keyStack, function(err, updatedInstance){
-                   if(err) {
-                       console.log(err.name);
-                       console.log(err.message);
-                       cb(null, err.message);
-                   }
-                   cb(null, "shifted.");
-               });
-           } else {
-               cb(null, "nothing to shift.");
-           }
-           
+            if(instance.keyStack && instance.keyStack.length > 0){
+                instanceJS.keyStack.shift();
+                instance.updateAttribute('keyStack', instanceJS.keyStack, function(err, updatedInstance){
+                    if(err) {
+                        console.log(err.name);
+                        console.log(err.message);
+                        return cb(null, err.message);
+                    }
+                    cb(null, "shifted.");
+                });
+            } else {
+                cb(null, "nothing to shift.");
+            }
         });
-    }
+    };
     
     Home.remoteMethod(
         'shiftStack',
@@ -38,21 +41,27 @@ module.exports = function(Home) {
             if(err) {
                 console.log(err.name);
                 console.log(err.message);
-                cb(null, err.message);
+                return cb(null, err.message);
+            }
+            if(!instance) {
+                console.log("Home not found for pushKey:", bridgeID);
+                return cb(null, "Home not found");
             }
             var instanceJS = JSON.parse(JSON.stringify(instance));
+            if(!instanceJS.keyStack) {
+                instanceJS.keyStack = [];
+            }
             instanceJS.keyStack.push(url);
             instance.updateAttribute('keyStack', instanceJS.keyStack, function(err, updatedInstance){
                 if(err) {
                     console.log(err.name);
                     console.log(err.message);
-                    cb(null, err.message);
+                    return cb(null, err.message);
                 }
                 cb(null, "pushed.");
             });
-           
         });
-    }
+    };
     
     Home.remoteMethod(
         'pushKey',
